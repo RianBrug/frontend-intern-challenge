@@ -1,0 +1,8 @@
+{
+  "name": "frontend-challenge-rian",
+  "version": "1.0.0",
+  "description": "Job for Linx Impulse selective process",
+  "devDependencies": {
+    "grunt-contrib-less": "^2.0.0"
+  }
+}
