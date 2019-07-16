@@ -1,6 +1,8 @@
-TO START GRUNT WATCH
+Grunt watch
 $ grunt watch
 
+Grunt Serve
+$ grunt serve
 
 # Desafio estagiário: HTML/CSS/JS
 
