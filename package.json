@@ -11,6 +11,7 @@
     "grunt-contrib-connect": "^2.0.0",
     "grunt-contrib-less": "^2.0.0",
     "grunt-contrib-watch": "^1.1.0",
+    "grunt-nodemon": "^0.4.2",
     "grunt-serve": "^0.1.6",
     "install-peers": "^1.0.3"
   },

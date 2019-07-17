@@ -1,37 +1,47 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html>
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Encurtando links...</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
         <link rel="stylesheet" href="css/less/style.less">
-
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
     <body>
 
-        <div class="header-container">
-            <header class="wrapper clearfix">
-                <img src="/Assets/logo-chaordic.png" alt="">
-            </header>
+      <div class="grid-container">
+        <div class="header">
+          <div class="header-logo">
+            <img id="chaordic-logo" src="/Assets/logo-chaordic.png" alt="image">
+          </div>
         </div>
 
-        <div class="main-container">
-            <div class="link-shorter clearfix">
+        <div class="encurte-seus-links">
+          <div class="link-area">
+            <h1>Encurte seus links.</h1>
+            <h3>Links são longos. Encurte os links que você deseja compartilhar, <br>
+            e os acompanhe enquanto viajam através da internet.</h3>
+            <form method="post" action="">
+              <input type="text" name="encutar-link" placeholder="Cole o seu link aqui" value=""/>
+              <button type="submit">Encurtar</button>
+            </form>
+          </div>
+        </div>
 
-              <section>
-                <h1>Encurte seus links.</h1>
-                <h3>Links são longos. Encurte os links que você deseja compartilhar, <br>
-                e os acompanhe enquanto viajam através da internet.</h3>
-              </section>
+        <div class="top-5-list">
 
-            </div> <!-- #main -->
+            <div class="top-5-list-title">
+              <h3>TOP  5</h3>
+            </div>
 
-            <div class="top-list clearfix">
+            <div class="usage-count">
+              <p>999888</p>
+              <p>63145</p>
+              <p>1478</p>
+              <p>235</p>
+              <p>43</p>
+            </div>
 
-              <h3>TOP 5</h3>
+            <div class="top-5-links">
               <p>http://chr.dc/xydcx</p>
               <p>http://chr.dc/xydcx</p>
               <p>http://chr.dc/xydcx</p>
@@ -39,28 +49,27 @@
               <p>http://chr.dc/xydcx</p>
             </div>
 
-            <div class="links-clicks clearfix">
-
+          </div>
+          <div class="cliques-em-links">
+            <div class="hits-area">
               <h3>HITS</h3>
               <p>35.713.571</p>
-              <p>35.713.571</p>
+              <p>Cliques em links</p>
             </div>
-        </div> <!-- #main-container -->
+          </div>
 
-        <div class="footer-container">
-            <footer class="row">
-                <div class="col">
-                  1 of 2
-                </div>
-                <div class="col">
-                  2 of 2
-                </div>
-            </footer>
+        <div class="footer">
+
+          <div class="footer-right">
+            <img src="/Assets/icon-twitter.png" alt="">
+            <img src="/Assets/icon-facebook.png" alt="">
+          </div>
+
+          <div class="footer-left">
+            chr.dc
+          </div>
+
         </div>
-
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-
-        <script src="js/main.js"></script>
+      </div>
     </body>
 </html>
