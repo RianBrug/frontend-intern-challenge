@@ -1,3 +1,5 @@
+html{ font-size: 16px; }
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -39,17 +41,29 @@
 
 .link-area h1 {
   color: #e4e4e4;
+  font-family: Roboto Slab;
+  font-size: 2rem;
+  letter-spacing: 0.04rem;
+  margin-bottom: 0.5rem;
 }
 
 .link-area h3 {
   color: #e4e4e4;
+  font-family: Roboto;
   font-weight: 100;
+  font-size: 0.95rem;
+  padding-bottom: 1.5rem;
 }
 
 .link-area button {
   background-color: #ff6d14;
+  font-weight: 600;
   color: #f9e5dc;
-  border-color: #ff6d14;
+  height: 2.2rem;
+  border: none;
+  width: 6rem;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
 }
 
 .link-area input {
@@ -58,6 +72,8 @@
   border-right: 0;
   border-color: #ff6d14;
   background-color: rgba(0,0,0,0);
+  width: 20rem;
+  padding-bottom: 0.3rem;
 }
 
 input::placeholder{
@@ -73,11 +89,31 @@ input::placeholder{
   background-color: #ffffff;
 }
 
-.top-5-list-title { grid-area: 1 / 2 / 2 / 4; }
+.top-5-list-title {
+  grid-area: 1 / 2 / 2 / 4;
+  align-self: center;
+  text-align: center;
+  color: #AA1423;
+  font-family: Roboto Slab;
+  font-size: 1.5em;
+}
 
-.usage-count { grid-area: 2 / 3 / 4 / 4; }
+.usage-count {
+  grid-area: 2 / 3 / 4 / 4;
+  align-self: center;
+  text-align: center;
+  color: #777;
+  font-family: Roboto;
+}
 
-.top-5-links { grid-area: 2 / 2 / 4 / 3; }
+.top-5-links {
+  grid-area: 2 / 2 / 4 / 3;
+  align-self: center;
+  text-align: center;
+  color: #AA1423;
+  font-weight: 550;
+  font-family: Roboto;
+}
 
 .cliques-em-links {
   display: grid;
@@ -85,12 +121,15 @@ input::placeholder{
   grid-template-rows: 1fr 1fr;
   grid-area: 10 / 1 / 14 / 4;
   background-color: #eeeeee;
+  font-family: Roboto;
 }
 
 .hits-area {
   grid-area: 1 / 2 / 3 / 3;
   text-align: center;
   align-self: center;
+  color: #AA1423;
+  font-family: Roboto Slab;
 }
 
 .footer {
