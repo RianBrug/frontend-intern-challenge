@@ -6,15 +6,16 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/less/style.less">
   </head>
+
   <body>
 
-    <div class="grid-container">
-      <div class="header">
-        <div class="header-logo">
-          <img id="chaordic-logo" src="/Assets/logo-chaordic.png" alt="image">
-        </div>
-      </div>
-      <div class="short-your-link">
+    <header>
+      <img src="/Assets/logo-chaordic.png" alt="chaordic-logo">
+    </header>
+
+    <main class="grid-container">
+
+      <section class="short-your-link">
         <div class="link-area">
           <h1>Encurte seus links.</h1>
           <h3>Links são longos. Encurte os links que você deseja compartilhar, <br>
@@ -24,16 +25,26 @@
             <button type="submit">Encurtar</button>
           </form>
         </div>
-      </div>
-      <div class="top-list">
+      </section>
+
+      <section class="top-list">
         <div class="top-list-title">
           <h3>TOP  5</h3>
         </div>
-        <div class="top-list-links"></div>
-      </div>
-      <a href="#" class="btn btn-primary" id="retrieve-resources">Retrieve List</a>
+        <div class="top-list-links">
+          <div id="linksList">
+              <!-- this is a dummy linkItem-->
+              <div class="item-link">
+                  <!-- <a href="http://chr.dc/xyzxyz">http://chr.dc/dummyL</a> -->
+                  <span class="clicks-count">7919</span>
+              </div>
+              <br>
+          </div>
+        </div>
+      </section>
+      <!-- <a href="#" class="btn btn-primary" id="retrieve-resources">Retrieve List</a> -->
 
-      <div class="hits-count">
+      <section class="hits-count">
         <div class="hits-count-title">
           <h3>HITS</h3>
         </div>
@@ -45,17 +56,19 @@
         <div class="hits-count-description">
           <p>Cliques em links</p>
         </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="footer-left">
+        chr.dc
       </div>
-      <div class="footer">
-        <div class="footer-left">
-          chr.dc
-        </div>
-        <div class="footer-right">
-          <img src="/Assets/icon-twitter.png" alt="">
-          <img src="/Assets/icon-facebook.png" alt="">
-        </div>
+      <div class="footer-right">
+        <img src="/Assets/icon-twitter.png" alt="">
+        <img src="/Assets/icon-facebook.png" alt="">
       </div>
-    </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/script.js"></script>

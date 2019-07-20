@@ -1,33 +1,61 @@
-jQuery(document).ready(function() {
-  jQuery("#retrieve-resources").click(function() {
-    var displayResources = jQuery(".top-list-links");
+// dummy function that should generate a shortened url based on an integer id,
+// though at the moment generates urls ramdomly
+function generateShortUrl(id) {
+    var n = 6;
+    var alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    var base = alphabet.length;
 
-    displayResources.text("Loading data from JSON source...");
+    var shortUrl = "";
+    for (var i = 0; i < n; i++) {
+        var char = Math.floor(Math.random() * base);
+        char = alphabet.charAt(char);
+        shortUrl += char;
+    }
 
-    jQuery.ajax({
-      type: "GET",
-      url: "/Assets/urls.json", // Using our resources.json file to serve results
-      success: function(result) {
-        console.log(result);
-        var output =
-          "<table><tbody>";
-        for (var i in result) {
-          output +=
-            "<tr><td>" +
-            result[i].shortUrl +
-            "</td><td>" +
-            result[i].hits +
-            "</td></tr>";
-        }
-        output += "</tbody></table>";
+    return "http://chr.dc/" + shortUrl;
+}
 
-        displayResources.html(output);
-        jQuery("table").addClass("table");
-      }
-    });
-  });
-});
+// dummy function to return an id to be used to generate a shortened url
+function getId() {
+    var maxId = Math.pow(62, 6);
+    return Math.floor(Math.random() * maxId);
+}
 
+// dummy function to validade a url
+function isValidUrl(url) {
+    if (url) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+// main function called to generate and show the short urls, also changes the
+// #urlButton to value COPIAR.
+function shortenUrl() {
+    var inpt = document.getElementById("urlInput");
+    var btn = document.getElementById("urlButton");
+
+    var longUrl = inpt.value;
+    if (!isValidUrl(longUrl)) {
+        return;
+    }
+
+    var id = getId();
+    var shortUrl = generateShortUrl(id);
+
+    inpt.value = shortUrl;
+    btn.value = "COPIAR";
+}
+
+function logArray(array) {
+    for (var i in array) {
+        console.log(array[i]);
+    }
+}
+
+// returns the total amount of hits from the urls json
 function getTotalHits(urls) {
     // get the hits of the urls to a new array
     var hits = urls.map(function (a) {
@@ -78,7 +106,7 @@ function fillTopN(urls, n) {
 
 $(document).ready(function () {
 //    var requestUrl = "https://github.com/chaordic/frontend-intern-challenge/blob/master/Assets/urls.json";
-    var requestUrl = "/Assets/urls.json";
+    var requestUrl = "../Assets/urls.json";
     $.getJSON(requestUrl, function (urls) {
         fillTopN(urls, 5);
 
