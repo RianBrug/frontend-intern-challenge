@@ -1,3 +1,9 @@
+To start the application, on root folder
+$ grunt serve
+
+and proceed accessing
+> localhost:9000/app/index.html
+
 Grunt watch
 $ grunt watch
 

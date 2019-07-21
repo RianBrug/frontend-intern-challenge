@@ -1,39 +1,44 @@
-jQuery(document).ready(function() {
-  jQuery("#retrieve-resources").click(function() {
-    var displayResources = jQuery(".top-list-links");
+function generateShortUrl(id) {
+    var n = 6;
+    var alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    var base = alphabet.length;
 
-    displayResources.text("Loading data from JSON source...");
+    var shortUrl = "";
+    for (var i = 0; i < n; i++) {
+        var char = Math.floor(Math.random() * base);
+        char = alphabet.charAt(char);
+        shortUrl += char;
+    }
 
-    jQuery.ajax({
-      type: "GET",
-      url: "/Assets/urls.json", // Using our resources.json file to serve results
-      success: function(result) {
-        console.log(result);
-        var output =
-          "<table><tbody>";
-        for (var i in result) {
-          output +=
-            "<tr><td>" +
-            result[i].shortUrl +
-            "</td><td>" +
-            result[i].hits +
-            "</td></tr>";
-        }
-        output += "</tbody></table>";
+    return "http://chr.dc/" + shortUrl;
+}
 
-        displayResources.html(output);
-        jQuery("table").addClass("table");
-      }
-    });
-  });
-});
+function getId() {
+    var maxId = Math.pow(62, 6);
+    return Math.floor(Math.random() * maxId);
+}
+
+function shortenUrl() {
+    var input = document.getElementById("url-field");
+    var btn = document.getElementById("generate-button");
+
+    var id = getId();
+    var shortUrl = generateShortUrl(id);
+
+    input.value = shortUrl;
+    btn.value = "copiar";
+}
+
+function restoreStatus() {
+  var btn = document.getElementById("generate-button");
+  btn.value = "encurtar";
+}
 
 function getTotalHits(urls) {
-    // get the hits of the urls to a new array
     var hits = urls.map(function (a) {
         return a.hits;
     });
-    // sum the array
+
     var total = hits.reduce(function (a, b) {
         return a + b;
     });
@@ -41,58 +46,54 @@ function getTotalHits(urls) {
     return total;
 }
 
-// returns the n links with the most hits from the urls json
-function getTopN(urls, n) {
-    // sort by hits in descending order
+function getTopFive(urls, n) {
     urls.sort(function (a, b) {
         return b.hits - a.hits;
     });
 
-    var topN = urls.slice(0, n);
+    var topFive = urls.slice(0, n);
 
-    return topN;
+    return topFive;
 }
 
-// based on the json urls, fills the linksList div with the links with the
-// top n of links with the most hits
-function fillTopN(urls, n) {
-    var topN = getTopN(urls, n);
+function generateTopList(urls, n) {
+    var topFive = getTopFive(urls, n);
 
-    var list = document.getElementById("linksList");
+    var list = document.getElementById("top-5-list");
 
-    // remove all the children of the linksList
     while (list.firstChild) {
         list.removeChild(list.firstChild);
     }
 
-    // add the topN to the list
-    for (var i in topN) {
-        var shortUrl = topN[i].shortUrl;
-        var hits = topN[i].hits;
-        var item = "<div class='linkItem box'><a href='" + shortUrl +
-                "'>" + shortUrl + "</a> <span class='supportText'>" +
+    for (var i in topFive) {
+        var shortUrl = topFive[i].shortUrl;
+        var hits = topFive[i].hits;
+        var item = "<div class='item-link box'><a href='" + shortUrl +
+                "'>" + shortUrl + "</a> <span class='clicks-count'>" +
                 hits + "</span></div><br>";
         list.innerHTML += item;
     }
 }
 
 $(document).ready(function () {
-//    var requestUrl = "https://github.com/chaordic/frontend-intern-challenge/blob/master/Assets/urls.json";
     var requestUrl = "/Assets/urls.json";
     $.getJSON(requestUrl, function (urls) {
-        fillTopN(urls, 5);
+        generateTopList(urls, 5);
 
         var totalHits = getTotalHits(urls);
 
-        var hitsBox = document.getElementById("hitsBox");
-        hitsBox.innerHTML = Number(totalHits).toLocaleString();
+        var hitsCount = document.getElementById("div-hits-count-sum");
+        hitsCount.innerHTML = Number(totalHits).toLocaleString();
     });
 
-    $("#urlButton").click(function () {
-        var content = document.getElementById("urlButton").value;
+    $("#generate-button").click(function () {
+        var content = document.getElementById("generate-button").value;
 
-        if (content === "ENCURTAR") {
+        if (content === "encurtar") {
             shortenUrl();
+        }
+        if (content === "copiar" ) {
+          restoreStatus();
         }
     });
 });
