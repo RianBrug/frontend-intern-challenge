@@ -10,9 +10,6 @@ $ grunt watch
 Grunt Serve
 $ grunt serve
 
-# Desafio estagiário: HTML/CSS/JS
-
-> **ATENÇÃO:** Antes de começar, se [cadastre na vaga](https://linxneemuchaordic.recruiterbox.com/) via Recruiterbox **=]**
 
 O desafio proposto consiste numa **landing page** simulando um encurtador de links, onde testará as habilidades e qualidade de código de um desenvolvedor front-end ao transformar um layout em um protótipo funcional.
 
@@ -48,7 +45,3 @@ O desafio proposto consiste numa **landing page** simulando um encurtador de lin
 - Consumir esse [JSON](./Assets/urls.json) para a seção **TOP 5**, também utilizando JavaScript.
 
 ---
-
-Em caso de dúvidas, [abra uma issue](https://github.com/chaordic/frontend-intern-challenge/issues).
-
-**Boa sorte =]**
